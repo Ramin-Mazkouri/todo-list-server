@@ -1,6 +1,8 @@
+export type TStatusTask = 'open' | 'in_progress' | 'done';
+
 export class TaskModel {
   id: number;
   title: string;
   description: string;
-  status: 'open' | 'in_progress' | 'done';
+  status: TStatusTask;
 }
