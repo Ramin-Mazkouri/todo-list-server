@@ -4,7 +4,6 @@ import { TaskEntity } from 'src/task/task.entity';
 
 const { DATABASE_HOST, DATABASE_PORT, DATABASE_USERNAME, DATABASE_PASSWORD } =
   process.env;
-console.log('DATABASE_HOST', DATABASE_HOST);
 
 /**
  * Config Database postgreSQL with TypeOrm
