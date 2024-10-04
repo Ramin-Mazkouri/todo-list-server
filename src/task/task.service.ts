@@ -33,6 +33,7 @@ export class TaskService {
   createTask(data: {
     title: string;
     description: string;
+    date: Date;
   }): Promise<TaskEntity> {
     const task = this.tasksRepository.create({
       ...data,
@@ -46,12 +47,14 @@ export class TaskService {
     status?: TStatusTask;
     title?: string;
     description?: string;
+    date?: Date;
   }): Promise<TaskEntity> {
     const task = await this.findTask(data.id);
 
     task.status = data.status ?? task.status;
     task.description = data.description ?? task.description;
     task.title = data.title ?? task.title;
+    task.date = data.date ?? task.date;
 
     return this.tasksRepository.save(task);
   }

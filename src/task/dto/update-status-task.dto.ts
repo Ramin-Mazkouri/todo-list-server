@@ -4,4 +4,5 @@ export class UpdateTaskDto {
   status?: TStatusTask;
   title?: string;
   description?: string;
+  date: Date;
 }

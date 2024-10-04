@@ -5,4 +5,5 @@ export class TaskModel {
   title: string;
   description: string;
   status: TStatusTask;
+  date: Date;
 }

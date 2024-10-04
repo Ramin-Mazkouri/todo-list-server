@@ -1,4 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { TStatusTask } from './task.model';
 
 @Entity()
@@ -14,4 +20,13 @@ export class TaskEntity {
 
   @Column()
   status: TStatusTask;
+
+  @Column('date')
+  date: Date;
+
+  @CreateDateColumn()
+  create_at: Date;
+
+  @UpdateDateColumn()
+  update_at: Date;
 }
