@@ -12,10 +12,9 @@ export class TaskService {
     private tasksRepository: Repository<TaskEntity>,
   ) {}
 
-  private findTask = async (id: string | number): Promise<TaskEntity> => {
-    const ID = exceptionNumber(id, 'id');
+  private findTask = async (id: number): Promise<TaskEntity> => {
     const task = await this.tasksRepository.findOne({
-      where: { id: ID },
+      where: { id },
     });
 
     if (!task) throw new NotFoundException(`Task with ID ${id} not found`);
@@ -26,7 +25,7 @@ export class TaskService {
     return this.tasksRepository.find();
   }
 
-  getTaskWithID(id: string): Promise<TaskEntity> {
+  getTaskWithID(id: number): Promise<TaskEntity> {
     return this.findTask(id);
   }
 
@@ -43,7 +42,7 @@ export class TaskService {
   }
 
   async updateTask(data: {
-    id: string;
+    id: number;
     status?: TStatusTask;
     title?: string;
     description?: string;
@@ -59,7 +58,7 @@ export class TaskService {
     return this.tasksRepository.save(task);
   }
 
-  async deleteTask(id: string) {
+  async deleteTask(id: number) {
     const ID = exceptionNumber(id, 'id');
     const result = await this.tasksRepository.delete(ID);
     if (result.affected === 0) {
