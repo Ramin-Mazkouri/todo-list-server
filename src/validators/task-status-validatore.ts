@@ -3,7 +3,7 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
-import { TStatusTask } from 'src/task/task.model';
+import { TStatusTask } from 'src/features/task/task.model';
 
 @ValidatorConstraint({ name: 'TaskStatus', async: true })
 export class TaskStatusValidator implements ValidatorConstraintInterface {

@@ -1,6 +1,6 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { TaskEntity } from 'src/task/task.entity';
+import { TaskEntity } from 'src/features/task/task.entity';
 
 const { DATABASE_HOST, DATABASE_PORT, DATABASE_USERNAME, DATABASE_PASSWORD } =
   process.env;
