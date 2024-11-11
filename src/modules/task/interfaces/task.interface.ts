@@ -1,9 +1,7 @@
-import { UUID } from 'crypto';
-
 export type TStatusTask = 'open' | 'in_progress' | 'done';
 
-export class TaskModel {
-  id: UUID;
+export interface TaskModel {
+  id: string;
   title: string;
   description: string;
   status: TStatusTask;

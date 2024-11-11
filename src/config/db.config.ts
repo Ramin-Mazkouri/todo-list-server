@@ -1,9 +1,8 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { TaskEntity } from 'src/features/task/task.entity';
-
-const { DATABASE_HOST, DATABASE_PORT, DATABASE_USERNAME, DATABASE_PASSWORD } =
-  process.env;
+import { Task } from 'src/modules/task/entities/task.entity';
+import { Profile } from 'src/modules/user/entities/profile.entity';
+import { User } from 'src/modules/user/entities/user.entity';
 
 /**
  * Config Database postgreSQL with TypeOrm
@@ -18,7 +17,7 @@ export const configDB = TypeOrmModule.forRootAsync({
     username: configService.get<string>('DATABASE_USERNAME'),
     password: configService.get<string>('DATABASE_PASSWORD'),
     database: 'postgres',
-    entities: [TaskEntity],
+    entities: [Task, User, Profile],
     synchronize: true,
   }),
 });

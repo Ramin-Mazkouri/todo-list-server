@@ -9,10 +9,9 @@ import {
   Post,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
-import { TaskModel } from './task.model';
+import { TaskModel } from './interfaces/task.interface';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-status-task.dto';
-import { UUID } from 'crypto';
 
 @Controller('task')
 export class TaskController {
@@ -25,7 +24,7 @@ export class TaskController {
 
   @Get(':id')
   async getTaskWithId(
-    @Param('id', ParseUUIDPipe) id: UUID,
+    @Param('id', ParseUUIDPipe) id: string,
   ): Promise<TaskModel> {
     return await this.taskService.getTaskWithID(id);
   }
@@ -37,7 +36,7 @@ export class TaskController {
 
   @Patch(':id/status')
   async updateTask(
-    @Param('id', ParseUUIDPipe) id: UUID,
+    @Param('id', ParseUUIDPipe) id: string,
     @Body() updateTaskDto: UpdateTaskDto,
   ): Promise<TaskModel> {
     return await this.taskService.updateTask({
@@ -47,7 +46,7 @@ export class TaskController {
   }
 
   @Delete(':id')
-  async deleteTask(@Param('id', ParseUUIDPipe) id: UUID): Promise<void> {
+  async deleteTask(@Param('id', ParseUUIDPipe) id: string): Promise<void> {
     return await this.taskService.deleteTask(id);
   }
 }

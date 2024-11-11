@@ -5,13 +5,12 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { TStatusTask } from './task.model';
-import { UUID } from 'crypto';
+import { TStatusTask } from '../interfaces/task.interface';
 
 @Entity()
-export class TaskEntity {
+export class Task {
   @PrimaryGeneratedColumn('uuid')
-  id: UUID;
+  id: string;
 
   @Column()
   title: string;

@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { configDB } from './config/db.config';
-import { TaskModule } from './features/task/task.module';
+import { TaskModule } from './modules/task/task.module';
 import { nestConfig } from './config/nest.config';
+import { UserModule } from './modules/user/user.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -9,6 +11,8 @@ import { nestConfig } from './config/nest.config';
     configDB, // config Database
     //All adds modules
     TaskModule,
+    UserModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

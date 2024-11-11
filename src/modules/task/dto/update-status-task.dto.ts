@@ -1,5 +1,5 @@
 import { IsDateString, IsOptional, IsString, Validate } from 'class-validator';
-import { TStatusTask } from '../task.model';
+import { TStatusTask } from '../interfaces/task.interface';
 import { TaskStatusValidator } from 'src/validators/task-status-validatore';
 
 export class UpdateTaskDto {
